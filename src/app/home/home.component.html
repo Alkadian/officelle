@@ -13,16 +13,13 @@
                         <div class="col-2" style="background-color: black;"></div>
                         <div class="col-10">
                             <h5 class="card-title">{{ office.name }}
-                            	<a href="javascript:void(0)" style="color: black" class="float-right" (click)="$event.stopPropagation(); myDrop.open();" id="dropdownBasic1">
-									<div class="d-inline-block" ngbDropdown placement="bottom-right" #myDrop="ngbDropdown">
-										<button class="btn btn-outline-primary mr-2 d-none" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Toggle dropdown</button>
-										<div ngbDropdownMenu aria-labelledby="dropdownManual">
-											<button ngbDropdownItem (click)="openOfficeEditModal()">Edit <i class="fas fa-pen float-right"></i></button>
-											<button ngbDropdownItem (click)="openOfficeDeleteModal()">Delete <i class="fas fa-trash float-right"></i></button>
-										</div>
+								<div class="d-inline-block float-right" ngbDropdown placement="bottom-right" #myDrop="ngbDropdown">
+									<a href="javascript:void(0)" ngbDropdownAnchor (click)="$event.stopPropagation(); myDrop.open();"><i class="fas fa-ellipsis-v"></i></a>
+									<div ngbDropdownMenu>
+										<button ngbDropdownItem (click)="openOfficeEditModal()">Edit <i class="fas fa-pen float-right"></i></button>
+										<button ngbDropdownItem (click)="openOfficeDeleteModal()">Delete <i class="fas fa-trash float-right"></i></button>
 									</div>
-									<i class="fas fa-ellipsis-v"></i>							
-								</a>
+								</div>
                             </h5>
                             <h6 class="card-subtitle mb-2 text-muted">Some random address</h6>
                             <a href="#" class="card-link">email@address.com</a>

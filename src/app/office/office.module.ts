@@ -5,12 +5,14 @@ import { OfficeRoutingModule } from './office-routing.module';
 import { OfficeComponent } from './office.component';
 import { OccupantCreateComponent } from './occupant-create/occupant-create.component';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { OccupantEditComponent } from './occupant-edit/occupant-edit.component';
 
 
 @NgModule({
   declarations: [
 	  OfficeComponent,
-	  OccupantCreateComponent
+	  OccupantCreateComponent,
+	  OccupantEditComponent
   ],
   imports: [
     CommonModule,

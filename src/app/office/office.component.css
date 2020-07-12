@@ -13,3 +13,7 @@ a{
 	border-radius: 50%;
 	background-color: cadetblue;
 }
+
+.dropdown-toggle::after {
+    display:none;
+}
