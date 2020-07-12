@@ -1,0 +1,7 @@
+a{
+	color: black;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}

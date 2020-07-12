@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { OccupantCreateComponent } from './occupant-create/occupant-create.component';
+import { OccupantEditComponent } from './occupant-edit/occupant-edit.component';
+import { OccupantDeleteComponent } from './occupant-delete/occupant-delete.component';
 
 @Component({
   selector: 'app-office',
@@ -6,10 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./office.component.css']
 })
 export class OfficeComponent implements OnInit {
+	public occupants = ['a', 's', 'd', 'f', 'g', 'h'];
 
-  constructor() { }
+  	constructor(private modalService: NgbModal) { }
 
-  ngOnInit(): void {
-  }
+	  ngOnInit(): void {}
+	  
+	  openOccupantCreateModal(){
+		const modalRef = this.modalService.open(OccupantCreateComponent);
+	  }
 
+	  openOccupantEditModal(){
+		const modalRef = this.modalService.open(OccupantEditComponent);
+	  }
+
+	  openOccupantDeleteModal(){
+		const modalRef = this.modalService.open(OccupantDeleteComponent);
+	  }
 }
