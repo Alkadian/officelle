@@ -20,7 +20,7 @@
 	<div class="row mb-2">
 		<div class="col-12">
 			<h5 class="d-inline">Staff Members: 8/9 </h5>
-			<button class="btn btn-sm btn-light my-2 my-sm-0 float-right" type="submit"><i class="fas fa-plus"></i> Add Occupant</button>
+			<button class="btn btn-sm btn-light my-2 my-sm-0 float-right" (click)="openOccupantCreateModal()" type="submit"><i class="fas fa-plus"></i> Add Occupant</button>
 		</div>
 	</div>
     <div class="row mb-3" *ngFor="let occupant of occupants">

@@ -21,6 +21,8 @@ import { OfficeDeleteComponent } from './office-delete/office-delete.component';
 	HomeRoutingModule,
 	NgbModule
 ],
-providers:[NgbActiveModal]
+providers:[
+	NgbActiveModal
+]
 })
 export class HomeModule { }

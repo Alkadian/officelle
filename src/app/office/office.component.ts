@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { OccupantCreateComponent } from './occupant-create/occupant-create.component';
 
 @Component({
   selector: 'app-office',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OfficeComponent implements OnInit {
 	public occupants = ['a', 's', 'd', 'f', 'g', 'h'];
-  	constructor() { }
 
-  	ngOnInit(): void {
-  	}
+  	constructor(private modalService: NgbModal) { }
+
+	  ngOnInit(): void {}
+	  
+	  openOccupantCreateModal(){
+		const modalRef = this.modalService.open(OccupantCreateComponent);
+	  }
 
 }
