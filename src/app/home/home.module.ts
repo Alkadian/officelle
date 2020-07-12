@@ -5,12 +5,14 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { NgbModule, NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { OfficeCreateComponent } from './office-create/office-create.component';
+import { OfficeEditComponent } from './office-edit/office-edit.component';
 
 
 @NgModule({
   declarations: [
 	  HomeComponent,
-	  OfficeCreateComponent
+	  OfficeCreateComponent,
+	  OfficeEditComponent
 ],
   imports: [
     CommonModule,

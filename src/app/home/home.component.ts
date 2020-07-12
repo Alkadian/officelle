@@ -1,6 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {OfficeCreateComponent} from './office-create/office-create.component'
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { OfficeEditComponent } from './office-edit/office-edit.component';
 
 @Component({
     selector: 'app-home',
@@ -24,9 +25,15 @@ export class HomeComponent implements OnInit {
 
 	ngOnInit(): void {}
 	
-	openModal() {
+	openOfficeCreateModal() {
 		const modalRef = this.modalService.open(OfficeCreateComponent);
 		modalRef.componentInstance.user = this.user;
 	}
+
+	openOfficeEditModal() {
+		const modalRef = this.modalService.open(OfficeEditComponent);
+		modalRef.componentInstance.user = this.user;
+	}
+	
 
 }

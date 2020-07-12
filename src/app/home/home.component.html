@@ -2,7 +2,7 @@
     <a class="navbar-brand">
 		<img src="" alt="">
 	</a>
-	<button class="btn btn-light my-2 my-sm-0" (click)="openModal()" type="submit"><i class="fas fa-plus"></i></button>
+	<button class="btn btn-light my-2 my-sm-0" (click)="openOfficeCreateModal()" type="submit"><i class="fas fa-plus"></i></button>
 </nav>
 <div class="container-fluid">
     <div class="row">
@@ -17,7 +17,7 @@
 									<div class="d-inline-block" ngbDropdown placement="bottom-right" #myDrop="ngbDropdown">
 										<button class="btn btn-outline-primary mr-2 d-none" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Toggle dropdown</button>
 										<div ngbDropdownMenu aria-labelledby="dropdownManual">
-											<button ngbDropdownItem>Edit <i class="fas fa-pen float-right"></i></button>
+											<button ngbDropdownItem (click)="openOfficeEditModal()">Edit <i class="fas fa-pen float-right"></i></button>
 											<button ngbDropdownItem>Delete <i class="fas fa-trash float-right"></i></button>
 										</div>
 									</div>

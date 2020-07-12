@@ -9,7 +9,7 @@ import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 export class OfficeCreateComponent implements OnInit {
 	@Input() public user;
 	
-    constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) {}
+    constructor(public activeModal: NgbActiveModal) {}
 
     ngOnInit(): void {
 		console.log(this.user);
