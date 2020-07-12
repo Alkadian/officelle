@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { OccupantCreateComponent } from './occupant-create/occupant-create.component';
 import { OccupantEditComponent } from './occupant-edit/occupant-edit.component';
+import { OccupantDeleteComponent } from './occupant-delete/occupant-delete.component';
 
 @Component({
   selector: 'app-office',
@@ -23,4 +24,7 @@ export class OfficeComponent implements OnInit {
 		const modalRef = this.modalService.open(OccupantEditComponent);
 	  }
 
+	  openOccupantDeleteModal(){
+		const modalRef = this.modalService.open(OccupantDeleteComponent);
+	  }
 }
