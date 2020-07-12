@@ -1,0 +1,29 @@
+<nav class="navbar navbar-light bg-light mb-3">
+    <a class="navbar-brand">
+		<img src="" alt="">
+	</a>
+    <form class="form-inline">
+        <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let office of offices">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-2" style="background-color: black;"></div>
+                        <div class="col-10">
+                            <h5 class="card-title">{{ office.name }} <span class="float-right"><i class="fas fa-ellipsis-v"></i></span></h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Some random address</h6>
+                            <a href="#" class="card-link">email@address.com</a>
+                            <a href="#" class="card-link float-right"><i class="fas fa-phone-alt"></i> 021 903 2133</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
