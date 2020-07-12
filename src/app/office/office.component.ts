@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./office.component.css']
 })
 export class OfficeComponent implements OnInit {
+	public occupants = ['a', 's', 'd', 'f', 'g', 'h'];
+  	constructor() { }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  	ngOnInit(): void {
+  	}
 
 }

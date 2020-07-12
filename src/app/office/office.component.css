@@ -1,0 +1,15 @@
+a{
+	color: black;
+}
+.jumbotron{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+}
+
+.user-icon{
+	font-size: 20px;
+	border-radius: 50%;
+	background-color: cadetblue;
+}
