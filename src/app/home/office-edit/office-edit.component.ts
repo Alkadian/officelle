@@ -7,7 +7,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./office-edit.component.css']
 })
 export class OfficeEditComponent implements OnInit {
-	@Input public user;
+	@Input() public user;
 
   	constructor(public activeModal: NgbActiveModal) { }
 

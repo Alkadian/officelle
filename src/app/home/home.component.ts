@@ -2,6 +2,7 @@ import {Component, OnInit, Input} from '@angular/core';
 import {OfficeCreateComponent} from './office-create/office-create.component'
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { OfficeEditComponent } from './office-edit/office-edit.component';
+import { OfficeDeleteComponent } from './office-delete/office-delete.component';
 
 @Component({
     selector: 'app-home',
@@ -35,5 +36,9 @@ export class HomeComponent implements OnInit {
 		modalRef.componentInstance.user = this.user;
 	}
 	
+	openOfficeDeleteModal() {
+		const modalRef = this.modalService.open(OfficeDeleteComponent);
+		modalRef.componentInstance.user = this.user;
+	}
 
 }

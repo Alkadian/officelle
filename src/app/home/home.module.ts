@@ -6,13 +6,15 @@ import { HomeComponent } from './home.component';
 import { NgbModule, NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { OfficeCreateComponent } from './office-create/office-create.component';
 import { OfficeEditComponent } from './office-edit/office-edit.component';
+import { OfficeDeleteComponent } from './office-delete/office-delete.component';
 
 
 @NgModule({
   declarations: [
 	  HomeComponent,
 	  OfficeCreateComponent,
-	  OfficeEditComponent
+	  OfficeEditComponent,
+	  OfficeDeleteComponent
 ],
   imports: [
     CommonModule,
