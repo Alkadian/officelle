@@ -10,20 +10,35 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-2" style="background-color: black;"></div>
-                        <div class="col-10">
+                        <div class="col-4 col-sm-3 d-flex" [style.background-color]="office.background_color ? office.background_color: 'black'" [style.color]="office.foreground_color ? office.foreground_color: 'white'">
+							<div class="justify-content-center align-self-center w-100">
+								<h1 class="text-center"><i class="fas fa-users"></i></h1>
+								<h3 class="text-center no-wrap">11/{{ office.capacity }}</h3>
+							</div>
+						</div>
+                        <div class="col-8 col-sm-9 office-details">
                             <h5 class="card-title">{{ office.name }}
-								<div class="d-inline-block float-right" ngbDropdown placement="bottom-right" #myDrop="ngbDropdown">
-									<a href="javascript:void(0)" ngbDropdownAnchor (click)="$event.stopPropagation(); myDrop.open();"><i class="fas fa-ellipsis-v"></i></a>
+								<div class="d-inline-block float-right" ngbDropdown placement="bottom-right" #officeOptions="ngbDropdown">
+									<a href="javascript:void(0)" id="toggle-office-options" ngbDropdownAnchor (click)="$event.stopPropagation(); officeOptions.isOpen() ? officeOptions.close() : officeOptions.open()"><i class="fas fa-ellipsis-v"></i></a>
 									<div ngbDropdownMenu>
 										<button ngbDropdownItem (click)="openOfficeEditModal()">Edit <i class="fas fa-pen float-right"></i></button>
 										<button ngbDropdownItem (click)="openOfficeDeleteModal()">Delete <i class="fas fa-trash float-right"></i></button>
 									</div>
 								</div>
                             </h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Some random address</h6>
-                            <a href="#" class="card-link">email@address.com</a>
-                            <a href="#" class="card-link float-right"><i class="fas fa-phone-alt"></i> 021 903 2133</a>
+                            <h6 class="card-subtitle mb-2 text-muted office-location mt-2">{{ office.location }}</h6>
+                            <a href="#" class="card-link office-email">
+								<small>
+									<i class="fas fa-envelope mr-2"></i> 
+									<span class="d-none d-sm-inline">{{ office.email }}</span>
+								</small>
+							</a>
+                            <a href="#" class="card-link float-sm-right">
+								<small>
+									<i class="fas fa-phone-alt mr-2"></i> 
+									<span class="d-none d-sm-inline">{{ office.tel }}</span>
+								</small>
+							</a>
                         </div>
                     </div>
                 </div>

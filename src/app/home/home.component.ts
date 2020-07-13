@@ -3,6 +3,7 @@ import {OfficeCreateComponent} from './office-create/office-create.component'
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { OfficeEditComponent } from './office-edit/office-edit.component';
 import { OfficeDeleteComponent } from './office-delete/office-delete.component';
+import { OfficeService } from '../services/office.service';
 
 @Component({
     selector: 'app-home',
@@ -10,21 +11,18 @@ import { OfficeDeleteComponent } from './office-delete/office-delete.component';
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-	offices = [
-		{'name': 'Specno'},
-		{'name': 'Spar'},
-		{'name': 'Wapp'},
-		{'name': 'DigitalHQ'}
-	];
+	public offices = [];
 
 	public user = {
 		name: 'Izzat Nadiri',
 		age: 26
 	}
 
-    constructor(private modalService: NgbModal) {}
+    constructor(private modalService: NgbModal, private officeService: OfficeService) {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.officeService.getOffices().subscribe(data => this.offices = data);
+	}
 	
 	openOfficeCreateModal() {
 		const modalRef = this.modalService.open(OfficeCreateComponent);
