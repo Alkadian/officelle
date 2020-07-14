@@ -10,7 +10,6 @@ import { OfficeService } from 'src/app/services/office.service';
 })
 export class OfficeCreateComponent implements OnInit {
 	public office = new Office();
-	public data;
 
 	constructor(public activeModal: NgbActiveModal, private officeService: OfficeService) { }
 
@@ -19,9 +18,7 @@ export class OfficeCreateComponent implements OnInit {
 	}
 
 	onSubmit() {
-		this.officeService.createOffice(this.office).subscribe(
-			data => this.data = data	
-		);
+		this.officeService.createOffice(this.office).subscribe();
 		this.activeModal.close('Form Submission');
 	}
 }

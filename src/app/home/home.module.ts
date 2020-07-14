@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { NgbModule, NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { OfficeCreateComponent } from './office-create/office-create.component';
 import { OfficeEditComponent } from './office-edit/office-edit.component';
 import { OfficeDeleteComponent } from './office-delete/office-delete.component';
 import { FormsModule } from '@angular/forms';
+import { OfficeFormContentComponent } from './office-form-content/office-form-content.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
 	  HomeComponent,
 	  OfficeCreateComponent,
 	  OfficeEditComponent,
-	  OfficeDeleteComponent
+	  OfficeDeleteComponent,
+	  OfficeFormContentComponent
 ],
   imports: [
 	CommonModule,

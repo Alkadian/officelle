@@ -4,57 +4,7 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<div class="modal-body">
-    <form #createOffice="ngForm" ngForm>
-        {{ office | json }}
-        <div class="form-row">
-            <div class="col-md-12 mb-3">
-                <label for="name">Office Name</label>
-                <input type="text" [class.is-invalid]="office_name.invalid && office_name.touched" class="form-control" id="name" name="name" required #office_name="ngModel" [(ngModel)]="office.name">
-                <div *ngIf="office_name.invalid && office_name.touched" class="invalid-feedback">
-                    Office Name is required
-                </div>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-12 mb-3">
-                <label for="email">Email Address</label>
-                <input type="email" [class.is-invalid]="email.invalid && email.touched" class="form-control" id="email" name="email" required #email="ngModel" [(ngModel)]="office.email">
-                <div *ngIf="email.invalid && email.touched" class="invalid-feedback">
-                    Invalid Email Address
-                </div>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-12 mb-3">
-                <label for="tel">Office Tel</label>
-                <input type="text" [class.is-invalid]="tel.invalid && tel.touched" class="form-control" id="tel" name="tel" required #tel="ngModel" [(ngModel)]="office.tel">
-                <div *ngIf="tel.invalid && tel.touched" class="invalid-feedback">
-                    Looks good!
-                </div>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-12 mb-3">
-                <label for="location">Location</label>
-                <input type="text" [class.is-invalid]="location.invalid && location.touched" class="form-control" id="location" name="location" required #location="ngModel" [(ngModel)]="office.location">
-                <div *ngIf="location.invalid && location.touched" class="invalid-feedback">
-                    Location is required
-                </div>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-12 mb-3">
-                <label for="capacity">Max Number of Occupants</label>
-                <input type="number" [class.is-invalid]="capacity.invalid && capacity.touched" class="form-control" id="capacity" name="capacity" required #capacity="ngModel" [(ngModel)]="office.capacity">
-                <div class="invalid-feedback">
-                    Capacity is required
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-<div class="modal-footer">
-	<button type="button" class="btn btn-light" (click)="onSubmit()" ngbAutofocus>Save Office</button>
-	<!-- (click)="activeModal.close('Close click')" -->
-</div>
+<form #form="ngForm" (ngSubmit)="onSubmit()">
+	<app-office-form-content (formData)="office=$event" [office]="office"></app-office-form-content>
+</form>
+

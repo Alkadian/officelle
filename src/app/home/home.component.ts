@@ -30,8 +30,12 @@ export class HomeComponent implements OnInit {
 	}
 
 	openOfficeEditModal(office_id) {		
-		const modalRef = this.modalService.open(OfficeEditComponent);
-		modalRef.componentInstance.user = this.user;
+		this.officeService.getOffice(office_id).subscribe(
+			data => {
+				const modalRef = this.modalService.open(OfficeEditComponent);
+				modalRef.componentInstance.office = data;
+			} 
+		);
 	}
 	
 	openOfficeDeleteModal() {
