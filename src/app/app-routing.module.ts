@@ -8,7 +8,7 @@ const routes: Routes = [
 		loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
 	},
 	{
-		path: 'office',
+		path: 'office/:office_id',
 		loadChildren: () => import('./office/office.module').then(m => m.OfficeModule)
 	},
 	{

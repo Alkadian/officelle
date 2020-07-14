@@ -3,28 +3,31 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { OccupantCreateComponent } from './occupant-create/occupant-create.component';
 import { OccupantEditComponent } from './occupant-edit/occupant-edit.component';
 import { OccupantDeleteComponent } from './occupant-delete/occupant-delete.component';
+import { OccupantService } from '../services/occupant.service';
 
 @Component({
-  selector: 'app-office',
-  templateUrl: './office.component.html',
-  styleUrls: ['./office.component.css']
+    selector: 'app-office',
+    templateUrl: './office.component.html',
+    styleUrls: ['./office.component.css']
 })
 export class OfficeComponent implements OnInit {
-	public occupants = ['a', 's', 'd', 'f', 'g', 'h'];
+    public occupants = [];
 
-  	constructor(private modalService: NgbModal) { }
+    constructor(private modalService: NgbModal, private occupantService: OccupantService) {}
 
-	  ngOnInit(): void {}
-	  
-	  openOccupantCreateModal(){
-		const modalRef = this.modalService.open(OccupantCreateComponent);
-	  }
+    ngOnInit(): void {
+		this.occupantService.getOccupants().subscribe(data => this.occupants = data);
+    }
 
-	  openOccupantEditModal(){
-		const modalRef = this.modalService.open(OccupantEditComponent);
-	  }
+    openOccupantCreateModal() {
+        const modalRef = this.modalService.open(OccupantCreateComponent);
+    }
 
-	  openOccupantDeleteModal(){
-		const modalRef = this.modalService.open(OccupantDeleteComponent);
-	  }
+    openOccupantEditModal() {
+        const modalRef = this.modalService.open(OccupantEditComponent);
+    }
+
+    openOccupantDeleteModal() {
+        const modalRef = this.modalService.open(OccupantDeleteComponent);
+    }
 }

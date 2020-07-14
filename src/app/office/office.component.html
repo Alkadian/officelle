@@ -25,12 +25,12 @@
 	</div>
     <div class="row mb-3" *ngFor="let occupant of occupants">
         <div class="col-12">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-body p-2">
 					<i class="fas fa-user-tie p-3 mr-3 user-icon"></i>
-					<span>Jonathan de Kock</span>
-					<div class="d-inline-block float-right" ngbDropdown placement="bottom-right" #myDrop="ngbDropdown">
-						<a href="javascript:void(0)" ngbDropdownAnchor (click)="$event.stopPropagation(); myDrop.open();"><i class="fas fa-ellipsis-v"></i></a>
+					<span>{{ occupant.name + ' ' + occupant.surname }}</span>
+					<div class="d-inline-block float-right" ngbDropdown placement="bottom-right" #occupantOptions="ngbDropdown">
+						<a href="javascript:void(0)" ngbDropdownAnchor (click)="$event.stopPropagation(); occupantOptions.isOpen() ? occupantOptions.close() : occupantOptions.open();"><i class="fas fa-ellipsis-v"></i></a>
 						<div ngbDropdownMenu>
 							<button ngbDropdownItem (click)="openOccupantEditModal()">Edit <i class="fas fa-pen float-right"></i></button>
 							<button ngbDropdownItem (click)="openOccupantDeleteModal()">Delete <i class="fas fa-trash float-right"></i></button>

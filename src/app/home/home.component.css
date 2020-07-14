@@ -1,7 +1,23 @@
-a{
+#toggle-office-options{
 	color: black;
 }
 
 .dropdown-toggle::after {
     display:none;
+}
+
+.card-body{
+	padding-top: 5px !important;
+	padding-bottom:  5px !important;
+}
+
+.office-details{
+	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
+}
+
+.office-location{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
