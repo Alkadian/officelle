@@ -1,4 +1,4 @@
-export interface Occupant {
+export interface IOccupant {
 	id: string,
 	office_id: string,
 	name: string,

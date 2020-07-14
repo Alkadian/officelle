@@ -16,26 +16,26 @@
                 <input type="text" class="form-control form-control-lg" id="search" aria-describedby="search" placeholder="Search...">
             </div>
         </div>
-	</div>
-	<div class="row mb-2">
-		<div class="col-12">
-			<h5 class="d-inline">Staff Members: 8/9 </h5>
-			<button class="btn btn-sm btn-light my-2 my-sm-0 float-right" (click)="openOccupantCreateModal()" type="submit"><i class="fas fa-plus"></i> Add Occupant</button>
-		</div>
-	</div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-12">
+            <h5 class="d-inline">Staff Members: 8/9 </h5>
+            <button class="btn btn-sm btn-light my-2 my-sm-0 float-right" (click)="openOccupantCreateModal()" type="submit"><i class="fas fa-plus"></i> Add Occupant</button>
+        </div>
+    </div>
     <div class="row mb-3" *ngFor="let occupant of occupants">
         <div class="col-12">
             <div class="card shadow">
                 <div class="card-body p-2">
-					<i class="fas fa-user-tie p-3 mr-3 user-icon"></i>
-					<span>{{ occupant.name + ' ' + occupant.surname }}</span>
-					<div class="d-inline-block float-right" ngbDropdown placement="bottom-right" #occupantOptions="ngbDropdown">
-						<a href="javascript:void(0)" ngbDropdownAnchor (click)="$event.stopPropagation(); occupantOptions.isOpen() ? occupantOptions.close() : occupantOptions.open();"><i class="fas fa-ellipsis-v"></i></a>
-						<div ngbDropdownMenu>
-							<button ngbDropdownItem (click)="openOccupantEditModal()">Edit <i class="fas fa-pen float-right"></i></button>
-							<button ngbDropdownItem (click)="openOccupantDeleteModal()">Delete <i class="fas fa-trash float-right"></i></button>
-						</div>
-					</div>
+                    <i class="fas fa-user-tie p-3 mr-3 user-icon"></i>
+                    <span>{{ occupant.name + ' ' + occupant.surname }}</span>
+                    <div class="d-inline-block float-right" ngbDropdown placement="bottom-right" #occupantOptions="ngbDropdown">
+                        <a href="javascript:void(0)" ngbDropdownAnchor (click)="$event.stopPropagation(); occupantOptions.isOpen() ? occupantOptions.close() : occupantOptions.open();"><i class="fas fa-ellipsis-v"></i></a>
+                        <div ngbDropdownMenu>
+                            <button ngbDropdownItem (click)="openOccupantEditModal()">Edit <i class="fas fa-pen float-right"></i></button>
+                            <button ngbDropdownItem (click)="openOccupantDeleteModal()">Delete <i class="fas fa-trash float-right"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {OfficeCreateComponent} from './office-create/office-create.component'
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit } from '@angular/core';
+import { OfficeCreateComponent } from './office-create/office-create.component'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { OfficeEditComponent } from './office-edit/office-edit.component';
 import { OfficeDeleteComponent } from './office-delete/office-delete.component';
 import { OfficeService } from '../services/office.service';
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
 		modalRef.componentInstance.user = this.user;
 	}
 
-	openOfficeEditModal() {
+	openOfficeEditModal(office_id) {		
 		const modalRef = this.modalService.open(OfficeEditComponent);
 		modalRef.componentInstance.user = this.user;
 	}

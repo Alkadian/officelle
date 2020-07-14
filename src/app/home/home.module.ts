@@ -7,6 +7,7 @@ import { NgbModule, NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { OfficeCreateComponent } from './office-create/office-create.component';
 import { OfficeEditComponent } from './office-edit/office-edit.component';
 import { OfficeDeleteComponent } from './office-delete/office-delete.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { OfficeDeleteComponent } from './office-delete/office-delete.component';
 	  OfficeDeleteComponent
 ],
   imports: [
-    CommonModule,
+	CommonModule,
+	FormsModule,
 	HomeRoutingModule,
 	NgbModule
 ],
