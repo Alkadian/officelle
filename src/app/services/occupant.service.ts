@@ -11,7 +11,7 @@ export class OccupantService {
 
     constructor(private http: HttpClient) {}
 
-	getOccupants(): Observable <IOccupant[]> {
+	getOccupants(office_id): Observable <IOccupant[]> {
 		return this.http.get <IOccupant[]> (this.url);
 	}
 

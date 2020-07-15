@@ -27,7 +27,7 @@ export class OfficeComponent implements OnInit {
 	}
 	
 	getOccupants(office_id){
-		this.occupantService.getOccupants().subscribe(data => this.occupants = data);
+		this.occupantService.getOccupants(office_id).subscribe(data => this.occupants = data);
 	}
 
     openOccupantCreateModal() {

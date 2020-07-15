@@ -7,6 +7,7 @@ import { OccupantCreateComponent } from './occupant-create/occupant-create.compo
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { OccupantEditComponent } from './occupant-edit/occupant-edit.component';
 import { OccupantDeleteComponent } from './occupant-delete/occupant-delete.component';
+import { OccupantFormContentComponent } from './occupant-form-content/occupant-form-content.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { OccupantDeleteComponent } from './occupant-delete/occupant-delete.compo
 	  OfficeComponent,
 	  OccupantCreateComponent,
 	  OccupantEditComponent,
-	  OccupantDeleteComponent
+	  OccupantDeleteComponent,
+	  OccupantFormContentComponent
   ],
   imports: [
     CommonModule,
