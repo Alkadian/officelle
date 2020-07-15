@@ -8,7 +8,6 @@ import { OfficeCreateComponent } from './office-create/office-create.component';
 import { OfficeEditComponent } from './office-edit/office-edit.component';
 import { OfficeDeleteComponent } from './office-delete/office-delete.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { OfficeFormContentComponent } from './office-form-content/office-form-content.component';
 import { ColorPickerModule } from "ngx-color-picker";
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 
@@ -20,7 +19,6 @@ export var options: Partial<IConfig> | (() => Partial<IConfig>);
 	  OfficeCreateComponent,
 	  OfficeEditComponent,
 	  OfficeDeleteComponent,
-	  OfficeFormContentComponent
 ],
   imports: [
 	CommonModule,

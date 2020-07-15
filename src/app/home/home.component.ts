@@ -4,6 +4,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { OfficeEditComponent } from './office-edit/office-edit.component';
 import { OfficeDeleteComponent } from './office-delete/office-delete.component';
 import { OfficeService } from '../services/office.service';
+import { ResponseService } from '../services/response.service';
+
 
 @Component({
     selector: 'app-home',
@@ -13,7 +15,7 @@ import { OfficeService } from '../services/office.service';
 export class HomeComponent implements OnInit {
 	public offices = [];
 
-    constructor(private modalService: NgbModal, private officeService: OfficeService) {}
+    constructor(private modalService: NgbModal, private officeService: OfficeService, private response: ResponseService) {}
 
 	ngOnInit(): void {		
 		this.getOffices();
@@ -27,7 +29,17 @@ export class HomeComponent implements OnInit {
 	
 	openOfficeCreateModal() {
 		const modalRef = this.modalService.open(OfficeCreateComponent);
-		modalRef.result.then( () => this.getOffices() );
+		modalRef.result.then( 
+			() => {
+				this.getOffices()
+				this.response.successHandler('Office Successfuly created');
+			},
+			(response) => {
+				if (response) {
+					this.response.errorHandler(response);
+				}
+			} 
+		);
 	}
 
 	openOfficeEditModal(office_id: string) {		
@@ -35,7 +47,17 @@ export class HomeComponent implements OnInit {
 			data => {
 				const modalRef = this.modalService.open(OfficeEditComponent);
 				modalRef.componentInstance.office = data;
-				modalRef.result.then( () => this.getOffices() );
+				modalRef.result.then( 
+					() => {
+						this.getOffices()
+						this.response.successHandler('Office Successfuly updated');
+					},
+					(response) => {
+						if (response) {
+							this.response.errorHandler(response);
+						}
+					} 
+				);
 			} 
 		);
 	}
@@ -45,7 +67,17 @@ export class HomeComponent implements OnInit {
 			data => {
 				const modalRef = this.modalService.open(OfficeDeleteComponent);
 				modalRef.componentInstance.office = data;
-				modalRef.result.then( () => this.getOffices() );
+				modalRef.result.then( 
+					() => {
+						this.getOffices()
+						this.response.successHandler('Office Successfuly deleted');
+					},
+					(response) => {
+						if (response) {
+							this.response.errorHandler(response);
+						}
+					} 
+				);
 			}
 		);
 	}

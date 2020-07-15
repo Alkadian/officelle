@@ -17,8 +17,10 @@ export class OfficeEditComponent implements OnInit {
 	}
 
 	onSubmit() {
-		this.officeService.updateOffice(this.office).subscribe();
-		this.activeModal.close('Form Submission');
+		this.officeService.updateOffice(this.office).subscribe(
+			(data) => this.activeModal.close('Successful Submission'),
+			(error) => this.activeModal.dismiss(error)
+		);
 	}
 
 }

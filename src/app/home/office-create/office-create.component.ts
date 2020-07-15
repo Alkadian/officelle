@@ -16,7 +16,9 @@ export class OfficeCreateComponent implements OnInit {
 	ngOnInit(): void { }
 
 	onSubmit() {
-		this.officeService.createOffice(this.office).subscribe();
-		this.activeModal.close('Form Submission');
+		this.officeService.createOffice(this.office).subscribe(
+			(data) => this.activeModal.close('Successful Submission'),
+			(error) => this.activeModal.dismiss(error)
+		);
 	}
 }
