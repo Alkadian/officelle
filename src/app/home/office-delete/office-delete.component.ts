@@ -17,7 +17,8 @@ export class OfficeDeleteComponent implements OnInit {
 
 	onSubmit(office_id) {
 		this.officeService.deleteOffice(office_id).subscribe(
-			(data) => { this.activeModal.close('Form Submission') }
+			(data) => this.activeModal.close('Successful Submission'),
+			(error) => this.activeModal.dismiss(error)
 		);
 	}
 

@@ -1,22 +1,22 @@
 <nav class="navbar navbar-light bg-light mb-3">
     <a class="navbar-brand">
-		<img src="" alt="">
+		<img src="../../assets/logo.png" height="25px" alt="">
 	</a>
 	<button class="btn btn-light my-2 my-sm-0" (click)="openOfficeCreateModal()" type="submit"><i class="fas fa-plus"></i></button>
 </nav>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let office of offices">
+        <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let office of offices">
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-4 col-sm-3 d-flex" [style.background-color]="office.background_color ? office.background_color: 'black'" [style.color]="office.foreground_color ? office.foreground_color: 'white'">
+                        <div class="col-4 col-sm-3 col-md-5 d-flex" [style.background-color]="office.background_color ? office.background_color: 'black'" [style.color]="office.foreground_color ? office.foreground_color: 'white'">
 							<div class="justify-content-center align-self-center w-100">
 								<h1 class="text-center"><i class="fas fa-users"></i></h1>
-								<h3 class="text-center no-wrap">{{11}}/{{ office.capacity }}</h3>
+								<h3 class="text-center no-wrap">{{ office.capacity }}</h3>
 							</div>
 						</div>
-                        <div class="col-8 col-sm-9 office-details">
+                        <div class="col-8 col-sm-9 col-md-7 office-details">
                             <h5 class="card-title">
 								
 								<a [routerLink]="['/office', office.id]">{{ office.name }}</a>
@@ -29,14 +29,14 @@
 								</div>
                             </h5>
                             <h6 class="card-subtitle mb-2 text-muted office-location mt-2">{{ office.location }}</h6>
-                            <a href="#" class="card-link office-email">
-								<small>
+                            <a href="{{ 'email:'+office.email }}" class="card-link">
+								<small class="contact-info">
 									<i class="fas fa-envelope mr-2"></i> 
 									<span class="d-none d-sm-inline">{{ office.email }}</span>
 								</small>
 							</a>
-                            <a href="#" class="card-link float-sm-right">
-								<small>
+                            <a href="{{ 'tel:'+office.tel }}" class="card-link ml-md-0 float-sm-right float-md-none d-md-block">
+								<small class="contact-info">
 									<i class="fas fa-phone-alt mr-2"></i> 
 									<span class="d-none d-sm-inline">{{ office.tel }}</span>
 								</small>

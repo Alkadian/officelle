@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { OfficeService } from '../services/office.service';
 import { IOffice } from '../interfaces/office';
 import { IOccupant } from '../interfaces/occupant';
+import { ResponseService } from '../services/response.service';
 
 @Component({
     selector: 'app-office',
@@ -19,7 +20,7 @@ export class OfficeComponent implements OnInit {
 	public office: IOffice;
     public occupants = [];
 
-    constructor(private modalService: NgbModal, private route: ActivatedRoute, private officeService: OfficeService, private occupantService: OccupantService) {}
+    constructor(private modalService: NgbModal, private route: ActivatedRoute, private officeService: OfficeService, private occupantService: OccupantService, private response: ResponseService) {}
 
     ngOnInit(): void {
 		this.office_id = this.route.snapshot.paramMap.get('office_id');		
@@ -38,7 +39,17 @@ export class OfficeComponent implements OnInit {
     openOccupantCreateModal() {
 		const modalRef = this.modalService.open(OccupantCreateComponent);
 		modalRef.componentInstance.office_id = this.office_id;
-		modalRef.result.then( () => this.getOccupants() );
+		modalRef.result.then( 
+			() => {
+				this.getOccupants()
+				this.response.successHandler('Occupant Successfuly created');
+			},
+			(response) => {
+				if (response) {
+					this.response.errorHandler(response);
+				}
+			} 
+		);
     }
 
     openOccupantEditModal(occupant_id: string) {
@@ -46,9 +57,16 @@ export class OfficeComponent implements OnInit {
 			(data) => {
 				const modalRef = this.modalService.open(OccupantEditComponent);
 				modalRef.componentInstance.occupant = data;
-				modalRef.result.then(
-					() => this.getOccupants(),
-					() => console.log('Error')
+				modalRef.result.then( 
+					() => {
+						this.getOccupants()
+						this.response.successHandler('Occupant Successfuly updated');
+					},
+					(response) => {
+						if (response) {
+							this.response.errorHandler(response);
+						}
+					} 
 				)
 			}
 		);
@@ -59,10 +77,17 @@ export class OfficeComponent implements OnInit {
 			(data) => {
 				const modalRef = this.modalService.open(OccupantDeleteComponent);
 				modalRef.componentInstance.occupant = data;
-				modalRef.result.then(
-					() => this.getOccupants(),
-					() => console.log('Error')
-				)
+				modalRef.result.then( 
+					() => {
+						this.getOccupants()
+						this.response.successHandler('Occupant Successfuly deleted');
+					},
+					(response) => {
+						if (response) {
+							this.response.errorHandler(response);
+						}
+					} 
+				);
 			}
 		);
     }
