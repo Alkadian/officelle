@@ -28,7 +28,7 @@ export class OccupantService {
 		return this.http.put <IOccupant> (`${this.url}/${occupant.id}`, occupant);
 	}
 
-	deleteOccupant(occupant_id: IOccupant): Observable <IOccupant> {
+	deleteOccupant(occupant_id: String): Observable <IOccupant> {
 		return this.http.delete <IOccupant> (`${this.url}/${occupant_id}`)
 	}
 
