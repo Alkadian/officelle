@@ -4,28 +4,6 @@
 		<span aria-hidden="true">&times;</span>
 	</button>
 </div>
-<div class="modal-body">
-	<form action="">
-		<div class="form-row">
-			<div class="col-md-12 mb-3">
-				<label for="validationCustom01">Name</label>
-				<input type="text" class="form-control" id="validationCustom01" value="Mark" required>
-				<div class="valid-feedback">
-					Looks good!
-				</div>
-			</div>
-		</div>
-		<div class="form-row">
-			<div class="col-md-12 mb-3">
-				<label for="validationCustom01">Surname</label>
-				<input type="text" class="form-control" id="validationCustom01" value="Mark" required>
-				<div class="valid-feedback">
-					Looks good!
-				</div>
-			</div>
-		</div>
-	</form>
-</div>
-<div class="modal-footer">
-	<button type="button" class="btn btn-light" (click)="activeModal.close('Close click')" ngbAutofocus>Save Occupant</button>
-</div>
+<form action="">
+	<app-occupant-form-content (formData)="occupant=$event" [occupant]="occupant"></app-occupant-form-content>
+</form>

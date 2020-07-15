@@ -9,6 +9,8 @@
 	<p class="text-center">Removing this office will remove all it's occupants</p>
 </div>
 <div class="modal-footer">
-	<button type="button" class="btn btn-block btn-light" (click)="activeModal.dismiss('Close click')" ngbAutofocus>Cancel</button>
-	<button type="button" class="btn btn-block btn-danger" (click)="activeModal.close('Close click')" ngbAutofocus>Remove</button>
+	<form (ngSubmit)="onSubmit(office.id)" #form="ngForm">
+		<button type="button" class="btn btn-block btn-light" (click)="activeModal.dismiss('Close click')" ngbAutofocus>Cancel</button>
+		<button type="submit" class="btn btn-block btn-danger" ngbAutofocus>Remove</button>
+	</form>
 </div>

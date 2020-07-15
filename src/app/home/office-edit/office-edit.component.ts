@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { OfficeService } from 'src/app/services/office.service';
 
 @Component({
   selector: 'app-office-edit',
@@ -7,12 +8,17 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./office-edit.component.css']
 })
 export class OfficeEditComponent implements OnInit {
-	@Input() public user;
+	@Input() public office;
 
-  	constructor(public activeModal: NgbActiveModal) { }
+  	constructor(public activeModal: NgbActiveModal, private officeService: OfficeService) { }
 
 	ngOnInit(): void {
-		console.log(this.user);
+		console.log(this.office);
+	}
+
+	onSubmit(office_id: String) {
+		this.officeService.updateOffice(office_id, this.office).subscribe();
+		this.activeModal.close('Form Submission');
 	}
 
 }
