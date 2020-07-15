@@ -1,0 +1,76 @@
+{
+  "occupants": [
+    {
+      "id": "c4ca4238a0b923820dcc509a6f75849b",
+      "office_id": "c4ca4238a0b923820dcc509a6f75849b",
+      "name": "Daniel",
+      "surname": "Novitzkas"
+    },
+    {
+      "id": "c81e728d9d4c2f636f067f89cc14862c",
+      "office_id": "c4ca4238a0b923820dcc509a6f75849b",
+      "name": "Jacques",
+      "surname": "Jordaan"
+    },
+    {
+      "id": "eccbc87e4b5ce2fe28308fd9f2a7baf3",
+      "office_id": "c4ca4238a0b923820dcc509a6f75849b",
+      "name": "Dane",
+      "surname": "Brouwer"
+    },
+    {
+      "id": "a87ff679a2f3e71d9181a67b7542122c",
+      "office_id": "c4ca4238a0b923820dcc509a6f75849b",
+      "name": "Luke",
+      "surname": "Stephens"
+    },
+    {
+      "id": "e4da3b7fbbce2345d7772b0674a318d5",
+      "office_id": "c4ca4238a0b923820dcc509a6f75849b",
+      "name": "Brandon",
+      "surname": "Watkins"
+    },
+    {
+      "id": "1679091c5a880faf6fb5e6087eb1b2dc",
+      "office_id": "c4ca4238a0b923820dcc509a6f75849b",
+      "name": "Steph",
+      "surname": "Goode"
+    },
+    {
+      "id": "8f14e45fceea167a5a36dedd4bea2543",
+      "office_id": "c4ca4238a0b923820dcc509a6f75849b",
+      "name": "Kevin",
+      "surname": "Wu"
+    },
+    {
+      "id": "c9f0f895fb98ab9159f51fd0297e236d",
+      "office_id": "c4ca4238a0b923820dcc509a6f75849b",
+      "name": "Kevin",
+      "surname": "Cuthbert"
+    },
+    {
+      "id": "45c48cce2e2d7fbdea1afc51c7c6ad26",
+      "office_id": "c4ca4238a0b923820dcc509a6f75849b",
+      "name": "Erhica",
+      "surname": "Korf"
+    },
+    {
+      "id": "d3d9446802a44259755d38e6d163e820",
+      "office_id": "c4ca4238a0b923820dcc509a6f75849b",
+      "name": "Sardonnay",
+      "surname": "Kivedo"
+    }
+  ],
+  "offices": [
+    {
+      "id": "c4ca4238a0b923820dcc509a6f75849b",
+      "name": "Specno",
+      "location": "1st Floor, Newlink Building, 1 new Street, Paarl, 4696",
+      "email": "Admin@specno.com",
+      "tel": "(082) 364-9864",
+      "capacity": 11,
+      "background_color": "#0f19c8",
+      "foreground_color": "#FFFFFF"
+    }
+  ]
+}

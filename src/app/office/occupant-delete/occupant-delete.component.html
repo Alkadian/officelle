@@ -1,0 +1,16 @@
+<div class="modal-header">
+	<h4 class="modal-title"><i class="fas fa-user-tie mr-2"></i> Remove Office</h4>
+	<button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<div class="modal-body">
+	<h4 class="text-center"><b>Are you sure that you want to remove  {{ occupant.name }} {{ occupant.surname }}?</b></h4>
+	<p class="text-center">Removing this occupant is an irreversable action</p>
+</div>
+<div class="modal-footer">
+	<form class="w-100" (ngSubmit)="onSubmit()" #form="ngForm">
+		<button type="button" class="btn btn-block btn-light mb-3" (click)="activeModal.dismiss()" ngbAutofocus>Cancel</button>
+		<button type="submit" class="btn btn-block btn-danger" ngbAutofocus>Remove</button>
+	</form>
+</div>

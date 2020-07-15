@@ -1,0 +1,20 @@
+a{
+	color: black;
+}
+.jumbotron{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+}
+
+.user-icon{
+	font-size: 20px;
+	border-radius: 50%;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}

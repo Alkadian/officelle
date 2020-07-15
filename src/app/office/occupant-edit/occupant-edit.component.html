@@ -1,0 +1,31 @@
+<div class="modal-header">
+	<h4 class="modal-title"><i class="fas fa-user-tie mr-2"></i> Edit Occupant</h4>
+	<button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+	<div class="modal-body">
+		<div class="form-row">
+			<div class="col-md-12 mb-3">
+				<label for="name">Name</label>
+				<input type="text" class="form-control" name="name" id="name" [class.is-invalid]="occupant_name.invalid && occupant_name.touched"  required [(ngModel)]="occupant.name" #occupant_name="ngModel">
+				<div *ngIf="occupant_name.invalid && occupant_name.touched" class="invalid-feedback">
+					Name is required
+				</div>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col-md-12 mb-3">
+				<label for="surname">Surname</label>
+				<input type="text" class="form-control" name="surname" id="surname" [class.is-invalid]="occupant_surname.invalid && occupant_surname.touched" required [(ngModel)]="occupant.surname" #occupant_surname="ngModel">
+				<div *ngIf="occupant_surname.invalid && occupant_surname.touched" class="invalid-feedback">
+					Surname is required
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="submit" [disabled]="!form.form.valid" class="btn btn-dark w-100" ngbAutofocus>Update Occupant</button>
+	</div>
+</form>

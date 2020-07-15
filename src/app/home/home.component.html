@@ -1,0 +1,52 @@
+<nav class="navbar navbar-light bg-light mb-3">
+    <a class="navbar-brand">
+		<img src="../../assets/logo.png" height="25px" alt="">
+	</a>
+	<button class="btn btn-light my-2 my-sm-0" (click)="openOfficeCreateModal()" type="submit"><i class="fas fa-plus"></i></button>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let office of offices">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4 col-sm-3 col-md-5 d-flex" [style.background-color]="office.background_color ? office.background_color: 'black'" [style.color]="office.foreground_color ? office.foreground_color: 'white'">
+							<div class="justify-content-center align-self-center w-100">
+								<h1 class="text-center"><i class="fas fa-users"></i></h1>
+								<h3 class="text-center no-wrap">{{ office.capacity }}</h3>
+							</div>
+						</div>
+                        <div class="col-8 col-sm-9 col-md-7 office-details">
+                            <h5 class="card-title">
+								
+								<a [routerLink]="['/office', office.id]">{{ office.name }}</a>
+								<div class="d-inline-block float-right" ngbDropdown placement="bottom-right" #officeOptions="ngbDropdown">
+									<a href="javascript:void(0)" id="toggle-office-options" ngbDropdownAnchor (click)="$event.stopPropagation(); officeOptions.isOpen() ? officeOptions.close() : officeOptions.open()"><i class="fas fa-ellipsis-v"></i></a>
+									<div ngbDropdownMenu>
+										<button ngbDropdownItem (click)="openOfficeEditModal(office.id)">Edit <i class="fas fa-pen float-right"></i></button>
+										<button ngbDropdownItem (click)="openOfficeDeleteModal(office.id)">Delete <i class="fas fa-trash float-right"></i></button>
+									</div>
+								</div>
+                            </h5>
+                            <h6 class="card-subtitle mb-2 text-muted office-location mt-2">{{ office.location }}</h6>
+                            <a href="{{ 'email:'+office.email }}" class="card-link">
+								<small class="contact-info">
+									<i class="fas fa-envelope mr-2"></i> 
+									<span class="d-none d-sm-inline">{{ office.email }}</span>
+								</small>
+							</a>
+                            <a href="{{ 'tel:'+office.tel }}" class="card-link ml-md-0 float-sm-right float-md-none d-md-block">
+								<small class="contact-info">
+									<i class="fas fa-phone-alt mr-2"></i> 
+									<span class="d-none d-sm-inline">{{ office.tel }}</span>
+								</small>
+							</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+
+<router-outlet></router-outlet>
