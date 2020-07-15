@@ -27,25 +27,25 @@ export class HomeComponent implements OnInit {
 	
 	openOfficeCreateModal() {
 		const modalRef = this.modalService.open(OfficeCreateComponent);
-		modalRef.result.finally( () => this.getOffices() );
+		modalRef.result.then( () => this.getOffices() );
 	}
 
-	openOfficeEditModal(office_id: String) {		
+	openOfficeEditModal(office_id: string) {		
 		this.officeService.getOffice(office_id).subscribe(
 			data => {
 				const modalRef = this.modalService.open(OfficeEditComponent);
 				modalRef.componentInstance.office = data;
-				modalRef.result.finally( () => this.getOffices() );
+				modalRef.result.then( () => this.getOffices() );
 			} 
 		);
 	}
 	
-	openOfficeDeleteModal(office_id: String) {
+	openOfficeDeleteModal(office_id: string) {
 		this.officeService.getOffice(office_id).subscribe(
 			data => {
 				const modalRef = this.modalService.open(OfficeDeleteComponent);
 				modalRef.componentInstance.office = data;
-				modalRef.result.finally( () => this.getOffices() );
+				modalRef.result.then( () => this.getOffices() );
 			}
 		);
 	}

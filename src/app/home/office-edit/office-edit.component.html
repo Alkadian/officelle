@@ -4,6 +4,6 @@
 		<span aria-hidden="true">&times;</span>
 	</button>
 </div>
-<form #form="ngForm" (ngSubmit)="onSubmit(office.id)">
+<form #form="ngForm" (ngSubmit)="onSubmit()">
 	<app-office-form-content (formData)="office=$event" [office]="office"></app-office-form-content>
 </form>

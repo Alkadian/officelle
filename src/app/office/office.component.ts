@@ -15,30 +15,55 @@ import { IOccupant } from '../interfaces/occupant';
     styleUrls: ['./office.component.css']
 })
 export class OfficeComponent implements OnInit {
+	public office_id: string;
 	public office: IOffice;
-    public occupants: IOccupant[] = [];
+    public occupants = [];
 
     constructor(private modalService: NgbModal, private route: ActivatedRoute, private officeService: OfficeService, private occupantService: OccupantService) {}
 
     ngOnInit(): void {
-		let office_id = this.route.snapshot.paramMap.get('office_id');
-		this.officeService.getOffice(office_id).subscribe(data => this.office = data);
-		this.getOccupants(office_id);
+		this.office_id = this.route.snapshot.paramMap.get('office_id');		
+		this.officeService.getOffice(this.office_id).subscribe(data => this.office = data);
+		this.getOccupants();		
+	}
+
+	onFilter(filter) {
+		this.getOccupants(filter);		
 	}
 	
-	getOccupants(office_id){
-		this.occupantService.getOccupants(office_id).subscribe(data => this.occupants = data);
+	getOccupants(filter: string = ''){
+		this.occupantService.getOccupants(this.office_id, filter).subscribe(data => this.occupants = data);
 	}
 
     openOccupantCreateModal() {
-        const modalRef = this.modalService.open(OccupantCreateComponent);
+		const modalRef = this.modalService.open(OccupantCreateComponent);
+		modalRef.componentInstance.office_id = this.office_id;
+		modalRef.result.then( () => this.getOccupants() );
     }
 
-    openOccupantEditModal() {
-        const modalRef = this.modalService.open(OccupantEditComponent);
+    openOccupantEditModal(occupant_id: string) {
+		this.occupantService.getOccupant(occupant_id).subscribe(
+			(data) => {
+				const modalRef = this.modalService.open(OccupantEditComponent);
+				modalRef.componentInstance.occupant = data;
+				modalRef.result.then(
+					() => this.getOccupants(),
+					() => console.log('Error')
+				)
+			}
+		);
     }
 
-    openOccupantDeleteModal() {
-        const modalRef = this.modalService.open(OccupantDeleteComponent);
+    openOccupantDeleteModal(occupant_id: string) {
+		this.occupantService.getOccupant(occupant_id).subscribe(
+			(data) => {
+				const modalRef = this.modalService.open(OccupantDeleteComponent);
+				modalRef.componentInstance.occupant = data;
+				modalRef.result.then(
+					() => this.getOccupants(),
+					() => console.log('Error')
+				)
+			}
+		);
     }
 }

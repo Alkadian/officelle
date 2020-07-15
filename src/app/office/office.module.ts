@@ -8,6 +8,7 @@ import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { OccupantEditComponent } from './occupant-edit/occupant-edit.component';
 import { OccupantDeleteComponent } from './occupant-delete/occupant-delete.component';
 import { OccupantFormContentComponent } from './occupant-form-content/occupant-form-content.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { OccupantFormContentComponent } from './occupant-form-content/occupant-f
   imports: [
     CommonModule,
 	OfficeRoutingModule,
+	FormsModule,
 	NgbModule,
   ],
   providers:[

@@ -9,6 +9,8 @@
 	<p class="text-center">Removing this occupant is an irreversable action</p>
 </div>
 <div class="modal-footer">
-	<button type="button" class="btn btn-block btn-light" (click)="activeModal.dismiss('Close click')" ngbAutofocus>Cancel</button>
-	<button type="button" class="btn btn-block btn-danger" (click)="activeModal.close('Close click')" ngbAutofocus>Remove</button>
+	<form (ngSubmit)="onSubmit()" #form="ngForm">
+		<button type="button" class="btn btn-block btn-light" (click)="activeModal.dismiss('Close click')" ngbAutofocus>Cancel</button>
+		<button type="submit" class="btn btn-block btn-danger" ngbAutofocus>Remove</button>
+	</form>
 </div>
