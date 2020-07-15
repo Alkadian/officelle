@@ -5,6 +5,7 @@ import { OfficeEditComponent } from './office-edit/office-edit.component';
 import { OfficeDeleteComponent } from './office-delete/office-delete.component';
 import { OfficeService } from '../services/office.service';
 import { ResponseService } from '../services/response.service';
+import { OccupantService } from '../services/occupant.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { ResponseService } from '../services/response.service';
 export class HomeComponent implements OnInit {
 	public offices = [];
 
-    constructor(private modalService: NgbModal, private officeService: OfficeService, private response: ResponseService) {}
+    constructor(private modalService: NgbModal, private officeService: OfficeService, private occupantService: OccupantService, private response: ResponseService) {}
 
 	ngOnInit(): void {		
 		this.getOffices();
