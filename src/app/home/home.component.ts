@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
 		modalRef.result.then( () => this.getOffices() );
 	}
 
-	openOfficeEditModal(office_id: String) {		
+	openOfficeEditModal(office_id: string) {		
 		this.officeService.getOffice(office_id).subscribe(
 			data => {
 				const modalRef = this.modalService.open(OfficeEditComponent);
@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
 		);
 	}
 	
-	openOfficeDeleteModal(office_id: String) {
+	openOfficeDeleteModal(office_id: string) {
 		this.officeService.getOffice(office_id).subscribe(
 			data => {
 				const modalRef = this.modalService.open(OfficeDeleteComponent);

@@ -11,15 +11,16 @@ export class OccupantService {
 
     constructor(private http: HttpClient) {}
 
-	getOccupants(office_id: String, filter: String = ''): Observable <IOccupant[]> {
+	getOccupants(office_id: string, filter: string = ''): Observable <IOccupant[]> {
 		return this.http.get <IOccupant[]> (`${this.url}?office_id=${office_id}&q=${filter}`);
 	}
 
-	getOccupant(occupant_id: String): Observable <IOccupant> {
+	getOccupant(occupant_id: string): Observable <IOccupant> {
 		return this.http.get <IOccupant> (`${this.url}/${occupant_id}`);
 	}
 
-	createOccupant(occupant: IOccupant): Observable <IOccupant> {
+	createOccupant(office_id: string, occupant: IOccupant): Observable <IOccupant> {
+		occupant.office_id = office_id;
 		return this.http.post <IOccupant> (this.url, occupant);
 	}
 
@@ -28,7 +29,7 @@ export class OccupantService {
 		return this.http.put <IOccupant> (`${this.url}/${occupant.id}`, occupant);
 	}
 
-	deleteOccupant(occupant_id: String): Observable <IOccupant> {
+	deleteOccupant(occupant_id: string): Observable <IOccupant> {
 		return this.http.delete <IOccupant> (`${this.url}/${occupant_id}`)
 	}
 

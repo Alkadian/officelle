@@ -15,7 +15,7 @@ export class OfficeService {
 		return this.http.get <IOffice[]> (this.url);
 	}
 	
-	getOffice(id: String): Observable <IOffice> {
+	getOffice(id: string): Observable <IOffice> {
 		return this.http.get <IOffice> (this.url + id);
 	}
 
@@ -27,7 +27,7 @@ export class OfficeService {
 		return this.http.put <IOffice> (this.url + office.id, office);
 	}
 
-	deleteOffice(office_id: String): Observable <IOffice> {
+	deleteOffice(office_id: string): Observable <IOffice> {
 		return this.http.delete <IOffice> (this.url + office_id);
 	}
 }

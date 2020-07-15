@@ -15,7 +15,7 @@ import { IOccupant } from '../interfaces/occupant';
     styleUrls: ['./office.component.css']
 })
 export class OfficeComponent implements OnInit {
-	public office_id: String;
+	public office_id: string;
 	public office: IOffice;
     public occupants = [];
 
@@ -31,16 +31,17 @@ export class OfficeComponent implements OnInit {
 		this.getOccupants(filter);		
 	}
 	
-	getOccupants(filter: String = ''){
+	getOccupants(filter: string = ''){
 		this.occupantService.getOccupants(this.office_id, filter).subscribe(data => this.occupants = data);
 	}
 
     openOccupantCreateModal() {
 		const modalRef = this.modalService.open(OccupantCreateComponent);
+		modalRef.componentInstance.office_id = this.office_id;
 		modalRef.result.then( () => this.getOccupants() );
     }
 
-    openOccupantEditModal(occupant_id: String) {
+    openOccupantEditModal(occupant_id: string) {
 		this.occupantService.getOccupant(occupant_id).subscribe(
 			(data) => {
 				const modalRef = this.modalService.open(OccupantEditComponent);
@@ -53,7 +54,7 @@ export class OfficeComponent implements OnInit {
 		);
     }
 
-    openOccupantDeleteModal(occupant_id: String) {
+    openOccupantDeleteModal(occupant_id: string) {
 		this.occupantService.getOccupant(occupant_id).subscribe(
 			(data) => {
 				const modalRef = this.modalService.open(OccupantDeleteComponent);
