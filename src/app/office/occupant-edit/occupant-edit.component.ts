@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { OccupantService } from 'src/app/services/occupant.service';
 
 @Component({
   selector: 'app-occupant-edit',
@@ -9,9 +10,11 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class OccupantEditComponent implements OnInit {
 	@Input() public occupant;
 
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal, private occupantService: OccupantService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  onSubmit() {
+	  this.occupantService.updateOccupant(this.occupant);
   }
-
 }

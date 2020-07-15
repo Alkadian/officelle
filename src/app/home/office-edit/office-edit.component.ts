@@ -13,7 +13,6 @@ export class OfficeEditComponent implements OnInit {
   	constructor(public activeModal: NgbActiveModal, private officeService: OfficeService) { }
 
 	ngOnInit(): void {
-		console.log(this.office);
 	}
 
 	onSubmit(office_id: String) {

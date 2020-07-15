@@ -1,8 +1,8 @@
 <div class="modal-body">
 	<div class="form-row">
 		<div class="col-md-12 mb-3">
-			<label for="validationCustom01">Name</label>
-			<input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+			<label for="name">Name</label>
+			<input type="text" class="form-control" id="name"  required [(ngModel)]="occupant.name" #ocupant_name="ngModel">
 			<div class="valid-feedback">
 				Looks good!
 			</div>
@@ -10,8 +10,8 @@
 	</div>
 	<div class="form-row">
 		<div class="col-md-12 mb-3">
-			<label for="validationCustom01">Surname</label>
-			<input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+			<label for="surname">Surname</label>
+			<input type="text" class="form-control" id="surname" required [(ngModel)]="occupant.surname" #occuapnt_surname="ngModel">
 			<div class="valid-feedback">
 				Looks good!
 			</div>
@@ -19,5 +19,5 @@
 	</div>
 </div>
 <div class="modal-footer">
-	<button type="button" class="btn btn-light" (click)="activeModal.close('Close click')" ngbAutofocus>Save Occupant</button>
+	<button type="button" class="btn btn-light" ngbAutofocus>Save Occupant</button>
 </div>

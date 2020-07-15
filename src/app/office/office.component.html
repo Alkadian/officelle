@@ -13,13 +13,15 @@
     <div class="row">
         <div class="col-12">
             <div class="form-group">
-                <input type="text" class="form-control form-control-lg" id="search" aria-describedby="search" placeholder="Search...">
+				<form #form="ngForm">
+					<input type="text" class="form-control form-control-lg" id="search" aria-describedby="search" placeholder="Search..." name="filter" (ngModelChange)="onFilter(query.value)" #query="ngModel" ngModel>
+				</form>
             </div>
         </div>
     </div>
     <div class="row mb-2">
         <div class="col-12">
-            <h5 class="d-inline">Staff Members: 8/{{ office.capacity }} </h5>
+            <h5 class="d-inline">Staff Members: {{ occupants.length }}/{{ office.capacity }} </h5>
             <button class="btn btn-sm btn-light my-2 my-sm-0 float-right" (click)="openOccupantCreateModal()" type="submit"><i class="fas fa-plus"></i> Add Occupant</button>
         </div>
     </div>
@@ -32,8 +34,8 @@
                     <div class="d-inline-block float-right" ngbDropdown placement="bottom-right" #occupantOptions="ngbDropdown">
                         <a href="javascript:void(0)" ngbDropdownAnchor (click)="$event.stopPropagation(); occupantOptions.isOpen() ? occupantOptions.close() : occupantOptions.open();"><i class="fas fa-ellipsis-v"></i></a>
                         <div ngbDropdownMenu>
-                            <button ngbDropdownItem (click)="openOccupantEditModal()">Edit <i class="fas fa-pen float-right"></i></button>
-                            <button ngbDropdownItem (click)="openOccupantDeleteModal()">Delete <i class="fas fa-trash float-right"></i></button>
+                            <button ngbDropdownItem (click)="openOccupantEditModal(occupant.id)">Edit <i class="fas fa-pen float-right"></i></button>
+                            <button ngbDropdownItem (click)="openOccupantDeleteModal(occupant.id)">Delete <i class="fas fa-trash float-right"></i></button>
                         </div>
                     </div>
                 </div>

@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 	
 	openOfficeCreateModal() {
 		const modalRef = this.modalService.open(OfficeCreateComponent);
-		modalRef.result.finally( () => this.getOffices() );
+		modalRef.result.then( () => this.getOffices() );
 	}
 
 	openOfficeEditModal(office_id: String) {		
@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
 			data => {
 				const modalRef = this.modalService.open(OfficeEditComponent);
 				modalRef.componentInstance.office = data;
-				modalRef.result.finally( () => this.getOffices() );
+				modalRef.result.then( () => this.getOffices() );
 			} 
 		);
 	}
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
 			data => {
 				const modalRef = this.modalService.open(OfficeDeleteComponent);
 				modalRef.componentInstance.office = data;
-				modalRef.result.finally( () => this.getOffices() );
+				modalRef.result.then( () => this.getOffices() );
 			}
 		);
 	}
