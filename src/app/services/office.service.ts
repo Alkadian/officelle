@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IOffice } from '../interfaces/office';
 import { Observable } from 'rxjs';
+import { HashService } from './hash.service';
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 export class OfficeService {
     private url = 'http://localhost:3000/offices/';
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private hash: HashService) {}
 
     getOffices(): Observable <IOffice[]> {
 		return this.http.get <IOffice[]> (this.url);
@@ -20,6 +21,7 @@ export class OfficeService {
 	}
 
 	createOffice(office: IOffice): Observable <IOffice> {
+		office.id = this.hash.generateId();
 		return this.http.post <IOffice> (this.url, office);
 	}
 

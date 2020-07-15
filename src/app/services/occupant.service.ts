@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IOccupant } from '../interfaces/occupant';
+import { HashService } from './hash.service';
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +10,7 @@ import { IOccupant } from '../interfaces/occupant';
 export class OccupantService {
 	private url = 'http://localhost:3000/occupants';
 
-    constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient, private hash: HashService) {}
 
 	getOccupants(office_id: string, filter: string = ''): Observable <IOccupant[]> {
 		return this.http.get <IOccupant[]> (`${this.url}?office_id=${office_id}&q=${filter}`);
@@ -20,6 +21,7 @@ export class OccupantService {
 	}
 
 	createOccupant(office_id: string, occupant: IOccupant): Observable <IOccupant> {
+		occupant.id = this.hash.generateId();
 		occupant.office_id = office_id;
 		return this.http.post <IOccupant> (this.url, occupant);
 	}

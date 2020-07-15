@@ -1,16 +1,16 @@
 <div class="modal-header">
 	<h4 class="modal-title"><i class="fas fa-building"></i> Remove Office</h4>
-	<button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+	<button type="button" class="close" aria-label="Close" (click)="activeModal.close('Cross click')">
 		<span aria-hidden="true">&times;</span>
 	</button>
 </div>
 <div class="modal-body">
-	<h4 class="text-center"><b>Are you sure that you want to remove  "Office Name"?</b></h4>
+	<h4 class="text-center"><b>Are you sure that you want to remove {{ office.name }}?</b></h4>
 	<p class="text-center">Removing this office will remove all it's occupants</p>
 </div>
 <div class="modal-footer">
-	<form (ngSubmit)="onSubmit(office.id)" #form="ngForm">
-		<button type="button" class="btn btn-block btn-light" (click)="activeModal.dismiss('Close click')" ngbAutofocus>Cancel</button>
+	<form class="w-100" (ngSubmit)="onSubmit(office.id)" #form="ngForm">
+		<button type="button" class="btn btn-block btn-light mb-3" (click)="activeModal.close('Close click')" ngbAutofocus>Cancel</button>
 		<button type="submit" class="btn btn-block btn-danger" ngbAutofocus>Remove</button>
 	</form>
 </div>

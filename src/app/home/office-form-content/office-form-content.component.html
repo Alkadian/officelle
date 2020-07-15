@@ -11,7 +11,7 @@
 	<div class="form-row">
 		<div class="col-md-12 mb-3">
 			<label for="email">Email Address</label>
-			<input type="email" [class.is-invalid]="email.invalid && email.touched" class="form-control" id="email" name="email" required #email="ngModel" [(ngModel)]="office.email">
+			<input type="email" [class.is-invalid]="email.invalid && email.touched" class="form-control" id="email" name="email" email required #email="ngModel" [(ngModel)]="office.email">
 			<div *ngIf="email.invalid && email.touched" class="invalid-feedback">
 				Invalid Email Address
 			</div>
@@ -20,10 +20,7 @@
 	<div class="form-row">
 		<div class="col-md-12 mb-3">
 			<label for="tel">Office Tel</label>
-			<input type="text" [class.is-invalid]="tel.invalid && tel.touched" class="form-control" id="tel" name="tel" required #tel="ngModel" [(ngModel)]="office.tel">
-			<div *ngIf="tel.invalid && tel.touched" class="invalid-feedback">
-				Looks good!
-			</div>
+			<input type="text" [class.is-invalid]="tel.invalid && tel.touched" mask="(000) 000-0000" class="form-control" id="tel" name="tel" #tel="ngModel" [(ngModel)]="office.tel">
 		</div>
 	</div>
 	<div class="form-row">
@@ -38,13 +35,31 @@
 	<div class="form-row">
 		<div class="col-md-12 mb-3">
 			<label for="capacity">Max Number of Occupants</label>
-			<input type="number" [class.is-invalid]="capacity.invalid && capacity.touched" class="form-control" id="capacity" name="capacity" required #capacity="ngModel" [(ngModel)]="office.capacity">
+			<input type="number" [class.is-invalid]="capacity.invalid && capacity.touched" min="1" class="form-control" id="capacity" name="capacity" required #capacity="ngModel" [(ngModel)]="office.capacity">
 			<div class="invalid-feedback">
 				Capacity is required
 			</div>
 		</div>
 	</div>
+	<div class="form-row">
+		<div class="col-md-12 mb-3">
+			<label for="capacity">Background Color</label>
+			<input class="form-control" name="background_color" id="background_color" cpPosition="top" [class.is-invalid]="background.invalid && background.touched" [(colorPicker)]="office.background_color" [style.background]="office.background_color" required #background="ngModel" [(ngModel)]="office.background_color"/>
+			<div class="invalid-feedback">
+				Background Color is required
+			</div>
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="col-md-12 mb-3">
+			<label for="capacity">Foreground Color</label>
+			<input class="form-control" name="foreground_color" id="foreground_color" cpPosition="top" [class.is-invalid]="foreground.invalid && foreground.touched" [(colorPicker)]="office.foreground_color" [style.background]="office.foreground_color" required #foreground="ngModel" [(ngModel)]="office.foreground_color"/>
+			<div class="invalid-feedback">
+				Foreground Color is required
+			</div>
+		</div>
+	</div>
 </div>
 <div class="modal-footer">
-	<button type="submit" class="btn btn-light" ngbAutofocus>Save Office</button>
+	<button type="submit" class="btn btn-dark w-100" ngbAutofocus>Save Office</button>
 </div>

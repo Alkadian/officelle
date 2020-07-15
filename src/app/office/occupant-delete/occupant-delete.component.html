@@ -5,12 +5,12 @@
 	</button>
 </div>
 <div class="modal-body">
-	<h4 class="text-center"><b>Are you sure that you want to remove  "Occupant Full Name"?</b></h4>
+	<h4 class="text-center"><b>Are you sure that you want to remove  {{ occupant.name }} {{ occupant.surname }}?</b></h4>
 	<p class="text-center">Removing this occupant is an irreversable action</p>
 </div>
 <div class="modal-footer">
-	<form (ngSubmit)="onSubmit()" #form="ngForm">
-		<button type="button" class="btn btn-block btn-light" (click)="activeModal.dismiss('Close click')" ngbAutofocus>Cancel</button>
+	<form class="w-100" (ngSubmit)="onSubmit()" #form="ngForm">
+		<button type="button" class="btn btn-block btn-light mb-3" (click)="activeModal.dismiss('Close click')" ngbAutofocus>Cancel</button>
 		<button type="submit" class="btn btn-block btn-danger" ngbAutofocus>Remove</button>
 	</form>
 </div>

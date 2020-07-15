@@ -76,6 +76,12 @@
       "surname": "de Kock",
       "office_id": "c4ca4238a0b923820dcc509a6f75849b",
       "id": "urb1QLm"
+    },
+    {
+      "name": "as",
+      "surname": "asd",
+      "office_id": "AF-O_Ne",
+      "id": "oYQ1lSw"
     }
   ],
   "offices": [
@@ -86,13 +92,28 @@
       "email": "Admin@specno.com",
       "tel": "(082) 364-9864",
       "capacity": 11,
-      "background_color": "#FF0000",
+      "background_color": "#0f19c8",
       "foreground_color": "#FFFFFF"
     },
     {
       "id": "AF-O_Ne",
       "name": "Wapp",
-      "email": "jonathandekock.100@gmail.com"
+      "email": "jonathandekock.100@gmail.com",
+      "background_color": "#f5ca0d",
+      "foreground_color": "#c00ced",
+      "capacity": 30,
+      "location": "11 Jacobs Street",
+      "tel": "021 903 2133"
+    },
+    {
+      "name": "Business Academy",
+      "email": "admin@business-academy.co.za",
+      "tel": "021 903 2133",
+      "location": "11 Jacobs Street",
+      "capacity": 30,
+      "background_color": "#9f9f9f",
+      "foreground_color": "#319709",
+      "id": "7e05c766d7bc833b068e657c70d69040"
     }
   ]
 }
