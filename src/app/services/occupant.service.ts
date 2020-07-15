@@ -15,19 +15,20 @@ export class OccupantService {
 		return this.http.get <IOccupant[]> (`${this.url}?office_id=${office_id}&q=${filter}`);
 	}
 
-	getOccupant(occupant_id): Observable <IOccupant> {
+	getOccupant(occupant_id: String): Observable <IOccupant> {
 		return this.http.get <IOccupant> (`${this.url}/${occupant_id}`);
 	}
 
-	createOccupant(occupant): Observable <IOccupant> {
+	createOccupant(occupant: IOccupant): Observable <IOccupant> {
 		return this.http.post <IOccupant> (this.url, occupant);
 	}
 
-	updateOccupant(occupant): Observable <IOccupant> {
-		return this.http.put <IOccupant> (this.url, occupant);
+	updateOccupant(occupant: IOccupant): Observable <IOccupant> {
+		console.log('Updaing...');
+		return this.http.put <IOccupant> (`${this.url}/${occupant.id}`, occupant);
 	}
 
-	deleteOccupant(occupant_id): Observable <IOccupant> {
+	deleteOccupant(occupant_id: IOccupant): Observable <IOccupant> {
 		return this.http.delete <IOccupant> (`${this.url}/${occupant_id}`)
 	}
 
