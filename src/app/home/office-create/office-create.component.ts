@@ -13,9 +13,7 @@ export class OfficeCreateComponent implements OnInit {
 
 	constructor(public activeModal: NgbActiveModal, private officeService: OfficeService) { }
 
-	ngOnInit(): void {
-		console.log();
-	}
+	ngOnInit(): void { }
 
 	onSubmit() {
 		this.officeService.createOffice(this.office).subscribe();

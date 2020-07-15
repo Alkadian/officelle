@@ -7,8 +7,8 @@ import { IOffice } from 'src/app/interfaces/office';
 	styleUrls: ['./office-form-content.component.css']
 })
 export class OfficeFormContentComponent implements OnInit {
-	@Input() public office:IOffice;
-	@Output() public  formData = new EventEmitter;
+	@Input() public office: IOffice;
+	@Output() public formData = new EventEmitter;
 
 	constructor() { }
 

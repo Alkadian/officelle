@@ -1,11 +1,11 @@
-<div class="jumbotron">
+<div class="jumbotron" [style.background-color]="office.background_color ? office.background_color : 'black'" [style.color]="office.foreground_color ? office.foreground_color : 'white'">
     <div class="row">
         <div class="col-12">
-            <h2><a href="/home"><i class="fas fa-arrow-left"></i></a> Office Name</h2>
-            <p>Address blah blah blah</p>
-            <p>Email Address</p>
-            <p>Contact Number</p>
-            <p>Max Capacity</p>
+            <h2><a href="/home"><i class="fas fa-arrow-left" [style.color]="office.foreground_color ? office.foreground_color : 'white'"></i></a> {{ office.name }}</h2>
+            <p>{{ office.location }}</p>
+            <p>{{ office.email }}</p>
+            <p>{{ office.tel }}</p>
+            <p>{{ office.capacity }}</p>
         </div>
     </div>
 </div>
@@ -19,7 +19,7 @@
     </div>
     <div class="row mb-2">
         <div class="col-12">
-            <h5 class="d-inline">Staff Members: 8/9 </h5>
+            <h5 class="d-inline">Staff Members: 8/{{ office.capacity }} </h5>
             <button class="btn btn-sm btn-light my-2 my-sm-0 float-right" (click)="openOccupantCreateModal()" type="submit"><i class="fas fa-plus"></i> Add Occupant</button>
         </div>
     </div>
@@ -27,7 +27,7 @@
         <div class="col-12">
             <div class="card shadow">
                 <div class="card-body p-2">
-                    <i class="fas fa-user-tie p-3 mr-3 user-icon"></i>
+                    <i class="fas fa-user-tie p-3 mr-3 user-icon" [style.background-color]="office.background_color ? office.background_color : 'black'" [style.color]="office.foreground_color ? office.foreground_color : 'white'"></i>
                     <span>{{ occupant.name + ' ' + occupant.surname }}</span>
                     <div class="d-inline-block float-right" ngbDropdown placement="bottom-right" #occupantOptions="ngbDropdown">
                         <a href="javascript:void(0)" ngbDropdownAnchor (click)="$event.stopPropagation(); occupantOptions.isOpen() ? occupantOptions.close() : occupantOptions.open();"><i class="fas fa-ellipsis-v"></i></a>

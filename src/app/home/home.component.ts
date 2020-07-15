@@ -13,34 +13,41 @@ import { OfficeService } from '../services/office.service';
 export class HomeComponent implements OnInit {
 	public offices = [];
 
-	public user = {
-		name: 'Izzat Nadiri',
-		age: 26
-	}
-
     constructor(private modalService: NgbModal, private officeService: OfficeService) {}
 
-	ngOnInit(): void {
-		this.officeService.getOffices().subscribe(data => this.offices = data);
+	ngOnInit(): void {		
+		this.getOffices();
+	}
+
+	getOffices() {
+		this.officeService.getOffices().subscribe(
+			(data) => { this.offices = data }
+		);
 	}
 	
 	openOfficeCreateModal() {
 		const modalRef = this.modalService.open(OfficeCreateComponent);
-		modalRef.componentInstance.user = this.user;
+		modalRef.result.finally( () => this.getOffices() );
 	}
 
-	openOfficeEditModal(office_id) {		
+	openOfficeEditModal(office_id: String) {		
 		this.officeService.getOffice(office_id).subscribe(
 			data => {
 				const modalRef = this.modalService.open(OfficeEditComponent);
 				modalRef.componentInstance.office = data;
+				modalRef.result.finally( () => this.getOffices() );
 			} 
 		);
 	}
 	
-	openOfficeDeleteModal() {
-		const modalRef = this.modalService.open(OfficeDeleteComponent);
-		modalRef.componentInstance.user = this.user;
+	openOfficeDeleteModal(office_id: String) {
+		this.officeService.getOffice(office_id).subscribe(
+			data => {
+				const modalRef = this.modalService.open(OfficeDeleteComponent);
+				modalRef.componentInstance.office = data;
+				modalRef.result.finally( () => this.getOffices() );
+			}
+		);
 	}
 
 }
